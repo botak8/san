@@ -287,13 +287,11 @@ echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
 #install cf
-wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
+wget https://raw.githubusercontent.com/botak8/san/main/cf.sh && chmod +x cf.sh && ./cf.sh
 clear
 else
 print_install "Random Subdomain/Domain is Used"
-wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
+wget https://raw.githubusercontent.com/botak8/san/main/cf.sh && chmod +x cf.sh && ./cf.sh
 clear
     fi
 }
