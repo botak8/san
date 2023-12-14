@@ -57,7 +57,7 @@ fi
 if [[ $IP == "" ]]; then
     echo -e "    ${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
 else
-  echo -e "      ${OK} IP Address ( ${green}$IP${NC} )"
+    echo -e "    ${OK} IP Address ( ${green}$IP${NC} )"
 fi
 
 # // Validate Successfull
@@ -275,35 +275,30 @@ clear
 echo -e ""
 echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. Gunakan Domain Dari Script"
-    echo "          2. Pilih Domain Sendiri"
+    echo "          1. Gunakan Domain Sendiri"
+    echo "          2. Pilih Domain Dari Script"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-    read -rp " Tentukan domain anda : " dom 
-
-if test $dom -eq 1; then
+   read -p "   Please select numbers 1-2 or Any Button(Random) : " host
+echo ""
+if [[ $host == "1" ]]; then
+echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
+read -p "   Subdomain: " host1
+echo "IP=" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+echo ""
+elif [[ $host == "2" ]]; then
+#install cf
+wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
+rm -f /root/cf.sh
 clear
-wget -q -O /root/cf.sh "https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.sh"
-chmod +x /root/cf.sh
-./cf.sh
-elif test $dom -eq 2; then
-read -rp "Domain/Host: " -e host
-echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
- "IP=$host" >> /etc/xray/domain
-
-fi
-echo -e "${GREEN}Done.${NC}"
-sleep 2
+else
+print_install "Random Subdomain/Domain is Used"
+wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+rm -f /root/cf.sh
 clear
-echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
-#echo "IP=$host" >> /var/lib/scrz-prem/ipvps.conf
-echo "$host" >> /root/domain
+    fi
 }
-#clear
-wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cfslow.sh && chmod +x cfslow.sh && ./cfslow.sh
-rm -f /root/cfslow.sh
-clear
-
-
 clear
 #GANTI PASSWORD DEFAULT
 function password_default() {
@@ -322,16 +317,16 @@ function password_default() {
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" Update
-    ──────────────────────────────────────────
-             ‼️ Registrasi Script ‼️
-    ──────────────────────────────────────────
+    ─────────────────────────────
+            ‼️ Registrasi Script ‼️
+    ─────────────────────────────
     <code>Tanggal    :</code> <code>$tanggal</code>
     <code>IP Vps     :</code> <code>$MYIP</code>
     <code>Domain     :</code> <code>$domain</code>
     <code>User Script:</code> <code>$username</code>
     <code>Exp Script :</code> <code>$exp</code>
-    ──────────────────────────────────────────
-       Auto Massage from BOT Registered 
+    ─────────────────────────────
+      Auto Massage from BOT Registered 
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
