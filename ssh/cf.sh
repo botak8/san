@@ -7,10 +7,10 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 apt install jq curl -y
 sub=$(</dev/urandom tr -dc a-z | head -c4)
-DOMAIN=kakaonet.my.id
-SUB_DOMAIN=${sub}.kakaonet.my.id
-CF_ID=hasdararysandhy@gmail.com
-CF_KEY=ea6a937332a2f01d2d22d495dafdfbd187cd3
+DOMAIN=hrvpn.my.id
+SUB_DOMAIN=${sub}.hrvpn.my.id
+CF_ID=ahmadkhairudin1996@gmail.com
+CF_KEY=ab4ab65e0df030c3bb23f6d8cee27f2773fd8
 set -euo pipefail
 IP=$(curl -sS ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -37,8 +37,13 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
+     
 echo "Host : $SUB_DOMAIN"
-echo "IP=" >> /var/lib/kyt/ipvps.conf
-echo $SUB_DOMAIN > /etc/xray/domain
 echo $SUB_DOMAIN > /root/domain
-rm -f /root/cf.sh
+echo "IP=$SUB_DOMAIN" > /var/lib/SIJA/ipvps.conf
+sleep 1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Domain added.."
+sleep 3
+domain=$(cat /root/domain)
+cp -r /root/domain /etc/xray/domain
