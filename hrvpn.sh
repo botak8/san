@@ -7,6 +7,6 @@ apt install lolcat -y
 gem install lolcat
 
 # Download and run setup.sh
-wget -q https://raw.githubusercontent.com/botak8/san/main/hr.sh
-chmod +x hr.sh
-screen -S install ./hr.sh
+wget -q https://raw.githubusercontent.com/botak8/san/main/getting.sh
+chmod +x getting.sh
+screen -S install ./getting.sh
