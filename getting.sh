@@ -1015,8 +1015,8 @@ function password_default() {
     KEY="6210655575:AAH4TkHoDco4ShhlrD6HZMUIfpTWHKIVdog"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
-    USRSC=$(curl https://raw.githubusercontent.com/SETANTAZVPN/izinvps/ipuk/ip | grep $ipsaya | awk '{print $2}')
-    EXPSC=$(curl https://raw.githubusercontent.com/SETANTAZVPN/izinvps/ipuk/ip | grep $ipsaya | awk '{print $3}')
+    USRSC=$(curl https://raw.githubusercontent.com/botak8/san/main/izin | grep $ipsaya | awk '{print $2}')
+    EXPSC=$(curl https://raw.githubusercontent.com/botak8/san/main/izin | grep $ipsaya | awk '{print $3}')
     TIMES=`date -d "0 days" +"%d-%m-%Y" `
     TIMEZONE=$(printf '%(%H:%M:%S)T')
     TEXT=" 
@@ -1024,14 +1024,14 @@ function password_default() {
        ‼️ Registrasi Script ‼️
     ============================
     <code>User   : </code><code>$USRSC</code>
-<code>Domain : </code><code>$domain</code>
-<code>Date   : </code><code>$TIMES</code>
-<code>Time   : </code><code>$TIMEZONE</code>
-<code>Ip vps : </code><code>$MYIP</code>
-<code>Exp Sc : </code><code>$EXPSC</code>
+    <code>Domain : </code><code>$domain</code>
+    <code>Date   : </code><code>$TIMES</code>
+    <code>Time   : </code><code>$TIMEZONE</code>
+    <code>Ip vps : </code><code>$MYIP</code>
+    <code>Exp Sc : </code><code>$EXPSC</code>
     ============================
     Auto Massage from BOT Registered 
-"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ🐳","url":"https://t.me/devilstunnels"},{"text":"GRUP🐬","url":"https://t.me/rizyulvpn"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ🐳","url":"https://t.me/heruahmad"},{"text":"GRUP🐬","url":"https://t.me/HRstors"}]]}'
    
 curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 
@@ -1056,21 +1056,21 @@ echo " "
 echo " 𝗦𝘂𝗰𝗰𝗲𝘀 𝗮𝘁 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝘆" | tee -a log-install.txt
 echo "    𝗩𝗣𝗦 𝗜𝗡𝗙𝗢" | tee -a log-install.txt
 echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
-echo "    Isp Vps : $ISP" | tee -a log-install.txt
+echo "    Isp Vps    : $ISP" | tee -a log-install.txt
 echo "    Domain     : $domain" | tee -a log-install.txt
 echo "    IP Vps     : $MYIP" | tee -a log-install.txt
 echo "    OS Vps     : $OS_Name" | tee -a log-install.txt
 echo "    User Script: $USRSC" | tee -a log-install.txt
 echo "    Tanggal    : $tanggal" | tee -a log-install.txt
-echo "    Exp Vps : $exp" | tee -a log-install.txt
+echo "    Exp Vps    : $exp" | tee -a log-install.txt
 echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
 echo "    Hostname   : ${HOSTNAME}" | tee -a log-install.txt
 echo "    Kernel     : $Kernel" | tee -a log-install.txt
 echo "    Arch       : $Arch" | tee -a log-install.txt
-echo "    Ram Total   : $Ram_Total MB" | tee -a log-install.txt
+echo "    Ram Total  : $Ram_Total MB" | tee -a log-install.txt
 echo "    Ram Used   : $Ram_Usage MB" | tee -a log-install.txt
 echo "    ============================" | tee -a log-install.txt
-echo "  ⚠︎𝘽𝙮 STVPN 𝙋𝙧𝙤𝙟𝙚𝙘𝙩 𝙈𝙖𝙣𝙖𝙜𝙚𝙧 𝘾𝙤𝙢𝙢𝙪𝙣𝙞𝙩𝙮⚠︎" | tee -a log-install.txt
+echo "      ⚠︎𝘽𝙮 HR-vpn project ⚠︎" | tee -a log-install.txt
 echo "    ============================" | tee -a log-install.txt
 echo ""
 echo "SIMPAN DATA VPS DI ATAS" | tee -a log-install.txt
