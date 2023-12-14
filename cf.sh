@@ -51,7 +51,7 @@ clear
 read -rp "Sub Domain (Contoh: HRvpn): " sub
 DOMAIN=devstun.my.id
 echo $sub > /root/cfku
-SUB_DOMAIN=${sub}.hrvpn.my.id
+SUB_DOMAIN=${sub}.brotherssh.me
 CF_ID=ahmadkhairudin1996@gmail.com
 CF_KEY=ab4ab65e0df030c3bb23f6d8cee27f2773fd8
 echo ".hrvpn.my.id" > /root/domain
