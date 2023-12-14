@@ -271,12 +271,11 @@ clear
 function pasang_domain() {
 echo -e ""
 clear
-    echo -e "   .----------------------------------."
-echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
-echo -e "   '----------------------------------'"
-echo -e "     \e[1;32m1)\e[0m Enter Your Subdomain"
-echo -e "     \e[1;32m2)\e[0m Use a Random Subdomain"
-echo -e "   ------------------------------------"
+   echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
+   echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+   echo -e "       \e[1;32m1)\e[0m Enter Your Subdomain"
+   echo -e "       \e[1;32m2)\e[0m Use a Random Subdomain"
+   echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
 if [[ $host == "1" ]]; then
@@ -316,13 +315,12 @@ function password_default() {
     KEY="6338068936:AAHiZflXdNWM6vrWgu474SXhzxcKZ_ITDv0"
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT=" Update
+    TEXT=" 
     ============================
        ‼️ Registrasi Script ‼️
     ============================
     <code>Tanggal    :</code> <code>$tanggal</code>
     <code>IP Vps     :</code> <code>$MYIP</code>
-    <code>OS Vps     :</code> <code>$OS_Name</code>
     <code>Domain     :</code> <code>$domain</code>
     <code>User Script:</code> <code>$username</code>
     <code>Exp Script :</code> <code>$exp</code>
