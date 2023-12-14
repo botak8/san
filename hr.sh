@@ -22,30 +22,7 @@ export IP=$( curl -sS ipinfo.io/ip )
 clear
 clear && clear && clear
 clear;clear;clear
-
-# // Checking Os Architecture
-if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
-    echo -e "${OK} Your Architecture Is Supported ( ${green}$( uname -m )${NC} )"
-else
-    echo -e "${EROR} Your Architecture Is Not Supported ( ${YELLOW}$( uname -m )${NC} )"
-    exit 1
-fi
-
-# // Checking System
-if [[ $( cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g' ) == "ubuntu" ]]; then
-    echo -e "${OK} Your OS Is Supported ( ${green}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
-elif [[ $( cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g' ) == "debian" ]]; then
-    echo -e "${OK} Your OS Is Supported ( ${green}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
-else
-    echo -e "${EROR} Your OS Is Not Supported ( ${YELLOW}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
-    exit 1
-fi
-
-# // IP Address Validating
-if [[ $IP == "" ]]; then
-    echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
-else
-  echo ""
+echo ""
   echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
   echo -e "\e[32m   ───│                                               │───\033[0m"
   echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
@@ -57,6 +34,29 @@ else
   echo -e "\e[36m  Make sure the internet is smooth when installing the script\033[0m"
   echo -e "\e[31m     JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!\033[0m"
   echo ""
+
+# // Checking Os Architecture
+if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
+    echo -e "    ${OK} Your Architecture Is Supported ( ${green}$( uname -m )${NC} )"
+else
+    echo -e "    ${EROR} Your Architecture Is Not Supported ( ${YELLOW}$( uname -m )${NC} )"
+    exit 1
+fi
+
+# // Checking System
+if [[ $( cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g' ) == "ubuntu" ]]; then
+    echo -e "    ${OK} Your OS Is Supported ( ${green}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
+elif [[ $( cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g' ) == "debian" ]]; then
+    echo -e "    ${OK} Your OS Is Supported ( ${green}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
+else
+    echo -e "    ${EROR} Your OS Is Not Supported ( ${YELLOW}$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g' )${NC} )"
+    exit 1
+fi
+
+# // IP Address Validating
+if [[ $IP == "" ]]; then
+    echo -e "    ${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
+else
   echo -e "      ${OK} IP Address ( ${green}$IP${NC} )"
 fi
 
@@ -275,31 +275,34 @@ clear
 echo -e ""
 echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. Gunakan Domain sendiri"
-    echo "          2. Gunakan Domain Dari Script"
+    echo "          1. Gunakan Domain Dari Script"
+    echo "          2. Pilih Domain Sendiri"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-read -p "   Please select numbers 1-2 or Any Button(Random) : " host
-echo ""
-if [[ $host == "1" ]]; then
-echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
-read -p "   Subdomain: " host1
-echo "IP=" >> /var/lib/kyt/ipvps.conf
-echo $host1 > /etc/xray/domain
-echo $host1 > /root/domain
-echo ""
-elif [[ $host == "2" ]]; then
-#install cf
+    read -rp " Tentukan domain anda : " dom 
+
+if test $dom -eq 1; then
+clear
 wget -q -O /root/cf.sh "https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.sh"
 chmod +x /root/cf.sh
 ./cf.sh
+elif test $dom -eq 2; then
+read -rp "Domain/Host: " -e host
+echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
+ "IP=$host" >> /etc/xray/domain
+
+fi
+echo -e "${GREEN}Done.${NC}"
+sleep 2
 clear
-else
-print_install "Random Subdomain/Domain is Used"
-wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.shcf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
-clear
-    fi
+echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
+#echo "IP=$host" >> /var/lib/scrz-prem/ipvps.conf
+echo "$host" >> /root/domain
 }
+#clear
+wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cfslow.sh && chmod +x cfslow.sh && ./cfslow.sh
+rm -f /root/cfslow.sh
+clear
+
 
 clear
 #GANTI PASSWORD DEFAULT
@@ -319,27 +322,19 @@ function password_default() {
     TIME="10"
     URL="https://api.telegram.org/bot$KEY/sendMessage"
     TEXT=" Update
-    ============================
-       ‼️ Registrasi Script ‼️
-    ============================
+    ──────────────────────────────────────────
+             ‼️ Registrasi Script ‼️
+    ──────────────────────────────────────────
     <code>Tanggal    :</code> <code>$tanggal</code>
     <code>IP Vps     :</code> <code>$MYIP</code>
-    <code>OS Vps     :</code> <code>$OS_Name</code>
     <code>Domain     :</code> <code>$domain</code>
     <code>User Script:</code> <code>$username</code>
     <code>Exp Script :</code> <code>$exp</code>
-    ============================
-    Auto Massage from BOT Registered 
+    ──────────────────────────────────────────
+       Auto Massage from BOT Registered 
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-}
-clear
-function pasang_domain_ns() {
-clear
-wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cfslow.sh && chmod +x cfslow.sh && ./cfslow.sh
-rm -f /root/cfslow.sh
-clear
 }
 # Pasang SSL
 function pasang_ssl() {
