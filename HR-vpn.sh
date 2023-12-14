@@ -295,7 +295,7 @@ chmod +x /root/cf.sh
 clear
 else
 print_install "Random Subdomain/Domain is Used"
-wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.shcf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
     fi
