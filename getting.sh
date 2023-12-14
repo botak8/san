@@ -24,12 +24,14 @@ clear && clear && clear
 clear;clear;clear
 
   # // Banner
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e "  Script Installer ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
-echo -e "     This Will Quick Setup VPN Server On Your Server"
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
+  echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+  echo -e "\e[32m   ───│                                               │───\033[0m"
+  echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
+  echo -e "\e[32m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
+  echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
+  echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
+  echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 echo ""
-sleep 2
 
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
