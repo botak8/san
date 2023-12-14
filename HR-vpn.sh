@@ -53,6 +53,7 @@ fi
 if [[ $IP == "" ]]; then
     echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
 else
+
     echo -e "${OK} IP Address ( ${green}$IP${NC} )"
 fi
 
