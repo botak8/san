@@ -1007,12 +1007,12 @@ function password_default() {
     ============================
        ‼️ Registrasi Script ‼️
     ============================
-    <code>User   : </code><code>$USRSC</code>
+    <code>User   : </code><code>$username</code>
     <code>Domain : </code><code>$domain</code>
     <code>Date   : </code><code>$TIMES</code>
     <code>Time   : </code><code>$TIMEZONE</code>
     <code>Ip vps : </code><code>$MYIP</code>
-    <code>Exp Sc : </code><code>$EXPSC</code>
+    <code>Exp Sc : </code><code>$exp</code>
     ============================
     Auto Massage from BOT Registered 
 "'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ🐳","url":"https://t.me/heruahmad"},{"text":"GRUP🐬","url":"https://t.me/HRstors"}]]}'
@@ -1037,14 +1037,14 @@ secs_to_human "$(($(date +%s) - ${start}))"
 echo ""
 clear
 echo " "
-echo " 𝗦𝘂𝗰𝗰𝗲𝘀 𝗮𝘁 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝘆" | tee -a log-install.txt
-echo "    𝗩𝗣𝗦 𝗜𝗡𝗙𝗢" | tee -a log-install.txt
+echo "  𝗦𝘂𝗰𝗰𝗲𝘀 𝗮𝘁 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝘆" | tee -a log-install.txt
+echo "       𝗩𝗣𝗦 𝗜𝗡𝗙𝗢" | tee -a log-install.txt
 echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
 echo "    Isp Vps    : $ISP" | tee -a log-install.txt
 echo "    Domain     : $domain" | tee -a log-install.txt
 echo "    IP Vps     : $MYIP" | tee -a log-install.txt
 echo "    OS Vps     : $OS_Name" | tee -a log-install.txt
-echo "    User Script: $USRSC" | tee -a log-install.txt
+echo "    User Script: $username" | tee -a log-install.txt
 echo "    Tanggal    : $tanggal" | tee -a log-install.txt
 echo "    Exp Vps    : $exp" | tee -a log-install.txt
 echo "    ◇━━━━━━━━━━━━━━━━━━━━━━━◇" | tee -a log-install.txt
@@ -1054,7 +1054,7 @@ echo "    Arch       : $Arch" | tee -a log-install.txt
 echo "    Ram Total  : $Ram_Total MB" | tee -a log-install.txt
 echo "    Ram Used   : $Ram_Usage MB" | tee -a log-install.txt
 echo "    ============================" | tee -a log-install.txt
-echo "      ⚠︎𝘽𝙮 HR-vpn project ⚠︎" | tee -a log-install.txt
+echo "       ⚠︎ 𝘽𝙮 HR-vpn project ⚠︎" | tee -a log-install.txt
 echo "    ============================" | tee -a log-install.txt
 echo ""
 echo "SIMPAN DATA VPS DI ATAS" | tee -a log-install.txt
