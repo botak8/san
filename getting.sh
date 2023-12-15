@@ -280,8 +280,8 @@ echo -e ""
 clear    
     echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. Gunakan Domain Dari sendiri"
-    echo "          2. Gunakan Domain Dari Script"
+    echo "          1. Gunakan Domain sendiri ✔️"
+    echo "          2. Gunakan Domain Dari Script ❌"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
     read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
@@ -299,7 +299,7 @@ rm -f /root/cf.sh
 clear
 else
 print_install "Random Subdomain/Domain is Used"
-wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+wget ${REPO}ssh/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
     fi
