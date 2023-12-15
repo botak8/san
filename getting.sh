@@ -273,53 +273,37 @@ function base_package() {
     print_success "Packet Yang Dibutuhkan"
     }
 
-     # if [ -z $pp ]; then
-   #     echo -e "
-   #     Nothing input for domain!
-    #    Then a random domain will be created"
-   #else
-   #     echo "$pp" > /root/scdomain
-#	echo "$pp" > /etc/xray/scdomain
-#	echo "$pp" > /etc/xray/domain
-#	echo "$pp" > /etc/v2ray/domain
-#	echo $pp > /root/domain
- #       echo "IP=$pp" > /var/lib/SIJA/ipvps.conf
-  #  fi
-    
+     clear
+# Fungsi input domain
+function pasang_domain() {
+echo -e ""
+clear    
     echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. Gunakan Domain Dari Script 1"
-    echo "          2. Gunakan Domain Dari Script 2"
-    echo "          3. Pilih Domain Sendiri"
+    echo "          1. Gunakan Domain Dari sendiri"
+    echo "          2. Gunakan Domain Dari Script"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-    read -rp " Tentukan domain anda : " dom 
-
-if test $dom -eq 1; then
+    read -p "   Please select numbers 1-2 or Any Button(Random) : " host
+echo ""
+if [[ $host == "1" ]]; then
+echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
+read -p "   Subdomain: " host1
+echo "IP=" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+echo ""
+elif [[ $host == "2" ]]; then
+#install cf
+wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+rm -f /root/cf.sh
 clear
-wget -q -O /root/cf.sh "https://raw.githubusercontent.com/sasak3/v4/main/sowdns/cf.sh"
-chmod +x /root/cf.sh
-./cf.sh
-elif test $dom -eq 2; then
-wget -q -O /root/cf1.sh "https://raw.githubusercontent.com/sasak3/v4/main/sowdns/cf1.sh"
-chmod +x /root/cf1.sh
-./cf1.sh
-elif test $dom -eq 3; then
-read -rp "Domain/Host: " -e host
-echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
- "IP=$host" >> /etc/xray/domain
- 
-fi
-echo -e "${GREEN}Done!${NC}"
-sleep 2
+else
+print_install "Random Subdomain/Domain is Used"
+wget ${REPO}cf.sh && chmod +x cf.sh && ./cf.sh
+rm -f /root/cf.sh
 clear
-echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
-#echo "IP=$host" >> /var/lib/scrz-prem/ipvps.conf
-echo "$host" >> /root/domain
-#clear
-domain=$(cat /root/domain)
-CITY=$(curl -s ipinfo.io/city )
-
-clear 
+    fi
+}
 
 clear
 # Pasang SSL
