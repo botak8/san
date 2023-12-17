@@ -30,7 +30,7 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-    wget https://raw.githubusercontent.com/botak8/san/main/menu/menu.zip
+    wget https://raw.githubusercontent.com/botak8/san/main/ssh/menu.zip
     unzip menu.zip
     chmod +x menu/*
     mv menu/* /usr/local/sbin
