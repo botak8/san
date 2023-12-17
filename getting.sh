@@ -275,7 +275,7 @@ function base_package() {
     echo -e "               Autoscript xray vpn lite (multi port)"
     echo -e "    Make sure the internet is smooth when installing the script"
     echo -e ""
-    echo -e "\e[31m          JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!  \033[0m"
+    echo -e "\e[31m      JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!  \033[0m"
     echo -e ""
     echo -e "\e[33m      ┌───────────────────────────────────────────────┐\033[0m"
     echo "          1.install script with Member Registration"
