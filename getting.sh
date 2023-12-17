@@ -272,11 +272,16 @@ function base_package() {
   echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
   echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
   echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
+    echo -e "\e[32m               Autoscript xray vpn lite (multi port)\033[0m"
+    echo -e "\e[32m       Make sure the internet is smooth when installing the script\033[0m"
+    echo -e ""
+    echo -e "               JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!  "
+    echo -e ""
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. INFUT DOMAIN SENDIRI"
+    echo "          1.install script with Member Registration"
+    echo "          2.Install script with Trial Mode 1 Hari"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-    read -rp " Tentukan domain anda : " dom 
+    read -rp "   Select from option : " dom 
 
 if test $dom -eq 1; then
 clear
@@ -288,17 +293,17 @@ clear
     echo "$domen" > /etc/xray/scdomain
     echo "IP=$domen" > /var/lib/ssnvpn-pro/ipvps.conf
     cp /root/domain /etc/xray/domain
+    elif test $dom -eq 2; then
+    echo -e ""
+    echo -e "\e[32m  FITUR INI BELUM TERSEDIA\033[0m"
+    sleep 7
+    exit 
     else 
     echo "Not Found Argument"
     exit 1
     fi
    echo -e "${GREEN}Done!${NC}"
 sleep 2
-clear
-echo "IP=$host" >> /var/lib/SIJA/ipvps.conf
-#echo "IP=$host" >> /var/lib/scrz-prem/ipvps.conf
-echo "$host" >> /root/domain
-#clear
 
 clear
 # Pasang SSL
