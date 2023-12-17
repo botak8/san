@@ -284,7 +284,7 @@ function base_package() {
     read -rp "   Select from option : " host
 
 if [[ $host == "1" ]]; then
-echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
+echo -e "   \e[1;33mPlease Enter Your Subdomain\033[0m"
 read -p "   Subdomain: " host1
 echo "IP=" >> /var/lib/kyt/ipvps.conf
 echo $host1 > /etc/xray/domain
@@ -292,8 +292,8 @@ echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
     echo -e ""
-    echo -e "\e[32m   FITUR INI BELUM TERSEDIA\033[0m"
-    sleep 7
+    echo -e "\e[31m   FITUR INI BELUM TERSEDIA\033[0m"
+    sleep 5
     exit 
     else 
     echo "   Not Found Argument"
