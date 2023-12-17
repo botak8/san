@@ -265,23 +265,23 @@ function base_package() {
 
      clear
 # Fungsi input domain
-  echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-  echo -e "\e[32m   ───│                                               │───\033[0m"
-  echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
-  echo -e "\e[32m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
-  echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
-  echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
-  echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-    echo -e "\e[32m               Autoscript xray vpn lite (multi port)\033[0m"
-    echo -e "\e[32m       Make sure the internet is smooth when installing the script\033[0m"
+  echo -e "\e[36m      ┌───────────────────────────────────────────────┐\033[0m"
+  echo -e "\e[36m   ───│                                               │───\033[0m"
+  echo -e "\e[36m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
+  echo -e "\e[36m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
+  echo -e "\e[36m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
+  echo -e "\e[36m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[36m │\033[0m"
+  echo -e "\e[36m      └───────────────────────────────────────────────┘\033[0m"
+    echo -e "               Autoscript xray vpn lite (multi port)"
+    echo -e "    Make sure the internet is smooth when installing the script"
     echo -e ""
-    echo -e "               JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!  "
+    echo -e "\e[31m          JANGAN INSTALL SCRIPT INI MENGGUNAKAN KONEKSI VPN!!!  \033[0m"
     echo -e ""
-    echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+    echo -e "\e[33m      ┌───────────────────────────────────────────────┐\033[0m"
     echo "          1.install script with Member Registration"
     echo "          2.Install script with Trial Mode 1 Hari"
-    echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
-    read -rp "   Select from option : " dom 
+    echo -e "\e[33m      └───────────────────────────────────────────────┘\033[0m"
+    read -rp "   Select from option : " host
 
 if [[ $host == "1" ]]; then
 echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
@@ -292,11 +292,11 @@ echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
     echo -e ""
-    echo -e "\e[32m  FITUR INI BELUM TERSEDIA\033[0m"
+    echo -e "\e[32m   FITUR INI BELUM TERSEDIA\033[0m"
     sleep 7
     exit 
     else 
-    echo "Not Found Argument"
+    echo "   Not Found Argument"
     exit 1
     fi
    echo -e "${GREEN}Done!${NC}"
