@@ -283,17 +283,14 @@ function base_package() {
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
     read -rp "   Select from option : " dom 
 
-if test $dom -eq 1; then
-clear
-    read -rp "Enter Your Domain : " domen 
-    echo $domen > /root/domain
-    echo "$domen" > /root/domain
-    echo "$domen" > /root/scdomain
-    echo "$domen" > /etc/xray/domain
-    echo "$domen" > /etc/xray/scdomain
-    echo "IP=$domen" > /var/lib/ssnvpn-pro/ipvps.conf
-    cp /root/domain /etc/xray/domain
-    elif test $dom -eq 2; then
+if [[ $host == "1" ]]; then
+echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
+read -p "   Subdomain: " host1
+echo "IP=" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+echo ""
+elif [[ $host == "2" ]]; then
     echo -e ""
     echo -e "\e[32m  FITUR INI BELUM TERSEDIA\033[0m"
     sleep 7
