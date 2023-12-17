@@ -23,14 +23,6 @@ clear
 clear && clear && clear
 clear;clear;clear
 
-  # // Banner
-  echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-  echo -e "\e[32m   ───│                                               │───\033[0m"
-  echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
-  echo -e "\e[32m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
-  echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
-  echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
-  echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
@@ -66,8 +58,6 @@ else
 fi
 
 # // Validate Successfull
-echo ""
-read -p "$( echo -e "Press ${GRAY}[ ${NC}${green}Enter${NC} ${GRAY}]${NC} For Starting Installation") "
 echo ""
 clear
 if [ "${EUID}" -ne 0 ]; then
@@ -275,20 +265,21 @@ function base_package() {
 
      clear
 # Fungsi input domain
+  echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
+  echo -e "\e[32m   ───│                                               │───\033[0m"
+  echo -e "\e[32m   ───│    ┌─┐┬ ┬┌┬┐┌─┐┌─┐┌─┐┬─┐┬┌─┐┌┬┐  ┬  ┬┌┬┐┌─┐   │───\033[0m"
+  echo -e "\e[32m   ───│    ├─┤│ │ │ │ │└─┐│  ├┬┘│├─┘ │   │  │ │ ├┤    │───\033[0m"
+  echo -e "\e[32m   ───│    ┴ ┴└─┘ ┴ └─┘└─┘└─┘┴└─┴┴   ┴   ┴─┘┴ ┴ └─┘   │───\033[0m"
+  echo -e "\e[32m      │\033[0m  \e[33m      HR-vpn (C)https://t.me/HRstores      \033[0m \e[32m │\033[0m"
+  echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
 echo -e "${red}                ♦️ CUSTOM SETUP DOMAIN VPS ♦️   ${NC}"
     echo -e "\e[32m      ┌───────────────────────────────────────────────┐\033[0m"
-    echo "          1. Gunakan Domain Dari Script 1"
-    echo "          2. Gunakan Domain Sendiri"
+    echo "          1. INFUT DOMAIN SENDIRI"
     echo -e "\e[32m      └───────────────────────────────────────────────┘\033[0m"
     read -rp " Tentukan domain anda : " dom 
 
 if test $dom -eq 1; then
 clear
-wget -q -O /root/cf.sh "https://raw.githubusercontent.com/sasak3/v4/main/slowdns/cf.sh"
-chmod +x /root/cf.sh
-./cf.sh
-clear
-    elif test $dom -eq 2; then
     read -rp "Enter Your Domain : " domen 
     echo $domen > /root/domain
     echo "$domen" > /root/domain
